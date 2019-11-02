@@ -1,6 +1,10 @@
 class PlacesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
+def index
+    @places = Place.order(:name).page(params[:page]).per(10)
+  end
+
   def new
     @place = Place.new
   end
