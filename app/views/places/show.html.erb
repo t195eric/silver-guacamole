@@ -4,6 +4,8 @@
   <br/><br/>
   <p><%= @place.description %></p>
   
+  <% if @place.latitude.present? && @place.longitude.present? %>
+
   <script>
 
     function initMap() {
@@ -23,11 +25,13 @@
   </script>
 
   <script async defer
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDAnk4NOhQgFKyCBVVM_jc6WnmCzVgkMPI&callback=initMap">
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyByZBx2FfgXQJl4Wn4v8vH6luMlHVof8tA &callback=initMap">
 </script>
 
 <div id="map"></div>
+<% end %>
 
+<br />
 
 <div class="float-right">
   <% if current_user && current_user == @place.user %>
