@@ -2,7 +2,7 @@ class PlacesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
 def index
-    @places = Place.order(:name).page(params[:page]).per(10)
+    @places = Place.order(:id).page(params[:page]).per(3)
   end
 
   def new
@@ -21,6 +21,7 @@ def index
   def show
     @place = Place.find(params[:id])
     @comment = Comment.new
+    @photo = Photo.new
   end
 
   def edit
